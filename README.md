@@ -4,11 +4,11 @@ Esta aplicación es una solución técnica desarrollada en **Angular 19+** para 
 
 ## Características Principales
 
-* **Gestión de Saldo:** Control centralizado del saldo disponible con un monto inicial de **COP $500.000**.
-* **Suscripción Validada:** Validación de montos mínimos y selección obligatoria del método de notificación (**Email/SMS**) mediante diálogos modales (Cumplimiento de Requerimiento Técnico).
+* **Gestión de Saldo:** Control de saldo disponible con un monto inicial de **COP $500.000**.
+* **Suscripción Validada:** Validación de montos mínimos y selección obligatoria del método de notificación (**Email/SMS**) mediante diálogos modales para cumplir con el requerimiento del Punto 5.
 * **Cancelación de Participación:** Retorno automático de fondos al saldo disponible tras la cancelación de un fondo activo.
-* **Historial de Transacciones:** Registro reactivo de todos los movimientos (suscripciones y cancelaciones) realizados durante la sesión.
-* **Consumo Asíncrono:** Implementación de servicios Mock con RxJS para simular latencia de red, incluyendo estados de carga (`spinner`) y manejo de errores.
+* **Historial de Transacciones:** Registro reactivo durante la sesión de todos los movimientos (suscripciones y cancelaciones).
+* **Consumo Asíncrono:** Implementación de servicios Mock con RxJS para simular respuestas de API con estados de carga (`spinner`) y manejo de errores.
 * **Diseño Responsivo:** Interfaz construida con **Angular Material**, optimizada para escritorio y dispositivos móviles.
 
 ## Stack Tecnológico
@@ -16,20 +16,38 @@ Esta aplicación es una solución técnica desarrollada en **Angular 19+** para 
 * **Framework:** Angular 19 (Componentes Standalone).
 * **Gestión de Estado:** Angular Signals (para reactividad de grano fino).
 * **UI Library:** Angular Material (Cards, Dialogs, Radio Buttons, SnackBar, Icons).
-* **Programación Reactiva:** RxJS para el manejo de flujos asíncronos y conversión a Promesas con `firstValueFrom`.
+* **Programación Reactiva:** RxJS para el manejo de flujos asíncronos y servicios.
 * **Estilos:** SCSS con Flexbox y CSS Grid.
 
-## Estructura del Proyecto
+## Estructura del Directorio
 
 ```text
 src/app/
 ├── models/      # Interfaces de TypeScript (Fund, Transaction).
-├── services/    # Lógica de negocio (Portfolio) y Mock API.
-├── pages/       # Componentes de página principal.
+├── services/    # Lógica de negocio (Portfolio) y servicios de datos (Mock API).
+├── pages/       # Vistas principales de la aplicación.
 │   └── home/
 │       ├── home.ts
 │       ├── home.html
 │       ├── home.scss
-│       └── subscribe-dialog.component.ts # Modal de selección de notificación.
-├── app.config.ts # Proveedores globales y configuración de animaciones.
+│       └── subscribe-dialog.component.ts # Modal para selección de notificación.
+├── app.config.ts # Configuración global y proveedores.
 └── app.routes.ts # Definición de rutas.
+
+
+## Descarga, Instalación y Ejecución
+
+### 1. Descarga del Proyecto
+Puede obtener el código fuente mediante los siguientes métodos:
+- Clonación por Git:
+  git clone https://github.com/davgui24/prueba_tecnica_btg_angular_ceiba
+- Descarga directa:
+  Descargue el archivo comprimido (.zip) desde el repositorio y descomprímalo en su equipo.
+
+### 2. Instalación de Dependencias
+Desde la terminal, acceda a la carpeta raíz del proyecto y ejecute:
+npm istall
+
+### 3. Ejecución
+Para iniciar la aplicación en un navegador:
+ng server -o
