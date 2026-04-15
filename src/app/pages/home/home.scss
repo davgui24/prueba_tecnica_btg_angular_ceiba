@@ -1,0 +1,112 @@
+.dashboard-container {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  
+  @media (min-width: 900px) {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.funds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+// Tarjeta de fondo individual
+.fund-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; // Asegura altura consistente
+  
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px;
+    
+    .fund-title {
+      font-size: 1.1rem;
+      line-height: 1.3;
+      white-space: normal; // Evita cortes de texto
+    }
+  }
+
+  .fund-content {
+    flex-grow: 1;
+    padding: 0 16px;
+    margin-top: 16px;
+    
+    .text-muted { color: #757575; margin-bottom: 4px; }
+    .fund-amount { margin-top: 0; font-weight: 600; }
+  }
+
+  .fund-actions {
+    padding: 16px;
+    .full-width { width: 100%; }
+  }
+}
+
+// Tarjeta de Saldo
+.balance-card {
+  background: linear-gradient(135deg, #002c5f 0%, #00448a 100%);
+  color: white;
+  border-radius: 16px;
+  padding: 8px;
+  margin-bottom: 32px;
+
+  .balance-label { font-size: 0.9rem; opacity: 0.8; margin-bottom: 8px; }
+  .balance-amount { font-size: 2.5rem; font-weight: bold; margin: 0; }
+}
+
+// Historial
+.history-section {
+  .flex-center { display: flex; align-items: center; gap: 8px; }
+  .history-icon { color: #555; }
+  
+  .tx-amount {
+    font-weight: bold;
+    font-size: 1rem;
+    &.negative { color: #d32f2f; }
+    &.positive { color: #388e3c; }
+  }
+
+  .empty-history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 0;
+    
+    mat-icon { font-size: 48px; width: 48px; height: 48px; margin-bottom: 16px; opacity: 0.5; }
+  }
+}
+
+// Estados de carga y error
+.loading-container, .error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 0;
+  
+  p { margin-top: 16px; color: #666; }
+  .error-icon { font-size: 48px; width: 48px; height: 48px; margin-bottom: 16px; }
+}
+
+// Utilidades globales
+.text-muted { color: #757575; }
+
+// Para aplicar al panel del snackbar en styles.scss global (opcional)
+::ng-deep .error-snackbar {
+  background-color: #d32f2f;
+  color: white;
+  .mat-mdc-button { color: white; }
+}
